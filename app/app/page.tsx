@@ -11,7 +11,6 @@ import { useAppStore } from "@/lib/store"
 
 export default function Page() {
    const setLoading = useAppStore((state) => state.setLoading);
-   setLoading(true)
   return (
     <SidebarProvider>
       <AppSidebar />
@@ -39,7 +38,7 @@ export default function Page() {
           </div>
         </header>
         <div className="flex flex-1 flex-col gap-4 p-4 pt-0">
-          <div className="fixed top-0 right-0 p-1"><ModeToggle /></div>
+          <div className="fixed top-0 right-0 p-2"><ModeToggle /></div>
           <div className="grid auto-rows-min gap-4 md:grid-cols-3">
             <div className="bg-muted/50 aspect-video rounded-xl" />
             <div className="bg-muted/50 aspect-video rounded-xl" />
