@@ -1,21 +1,17 @@
+'use client'
 import { AppSidebar } from "@/components/sidebar/app-sidebar"
 import { ModeToggle } from "@/components/theme/theme-toggle"
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb"
 import { Separator } from "@/components/ui/separator"
 import {
   SidebarInset,
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar"
+import { useAppStore } from "@/lib/store"
 
 export default function Page() {
+   const setLoading = useAppStore((state) => state.setLoading);
+   setLoading(true)
   return (
     <SidebarProvider>
       <AppSidebar />
