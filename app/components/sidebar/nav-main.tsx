@@ -1,7 +1,6 @@
 "use client"
 
 import { ChevronRight, type LucideIcon } from "lucide-react"
-
 import {
   Collapsible,
   CollapsibleContent,
@@ -17,6 +16,8 @@ import {
   SidebarMenuSubButton,
   SidebarMenuSubItem,
 } from "@/components/ui/sidebar"
+import Link from "next/link"
+import { useAppStore } from "@/lib/store"
 
 export function NavMain({
   items,
@@ -32,9 +33,18 @@ export function NavMain({
     }[]
   }[]
 }) {
+  const setBreadcrumb = useAppStore((s) => s.setBreadcrumb)
+
+  const handleSubClick = (parent: string, child: string, href: string) => {
+    setBreadcrumb([
+      { label: parent },
+      { label: child, href },
+    ])
+  }
+
   return (
     <SidebarGroup>
-      <SidebarGroupLabel>Platform</SidebarGroupLabel>
+      <SidebarGroupLabel>Tools</SidebarGroupLabel>
       <SidebarMenu>
         {items.map((item) => (
           <Collapsible
@@ -56,9 +66,12 @@ export function NavMain({
                   {item.items?.map((subItem) => (
                     <SidebarMenuSubItem key={subItem.title}>
                       <SidebarMenuSubButton asChild>
-                        <a href={subItem.url}>
+                        <Link
+                          href={subItem.url}
+                          onClick={() => handleSubClick(item.title, subItem.title, subItem.url)}
+                        >
                           <span>{subItem.title}</span>
-                        </a>
+                        </Link>
                       </SidebarMenuSubButton>
                     </SidebarMenuSubItem>
                   ))}
