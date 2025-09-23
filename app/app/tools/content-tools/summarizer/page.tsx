@@ -1,5 +1,5 @@
-import { TwoCardLayout } from "@/components/layout/two-card-layout"
-import { Button } from "@/components/ui/button"
+import { TwoCardLayout } from "@/components/layout/two-card-layout";
+import { Button } from "@/components/ui/button";
 
 export default function Page() {
   return (
@@ -7,10 +7,15 @@ export default function Page() {
       leftTitle="Prompt"
       leftDescription="Write your prompt here"
       leftContent={
-        <textarea
-          className="w-full h-40 resize-none rounded-md border border-input bg-background px-3 py-2 text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-          placeholder="A futuristic city..."
-        />
+        <div>
+          <textarea
+            className="w-full h-40 resize-none rounded-md border border-input bg-background px-3 py-2 text-sm placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            placeholder="A futuristic city..."
+          />
+          <Button variant="default" className="bg-green-500">
+            Summarize
+          </Button>
+        </div>
       }
       rightTitle="Generated Image"
       rightDescription="Result will appear here"
@@ -20,5 +25,5 @@ export default function Page() {
         </div>
       }
     />
-  )
+  );
 }

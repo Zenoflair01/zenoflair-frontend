@@ -2,6 +2,7 @@ import { TwoCardLayout } from "@/components/layout/two-card-layout"
 import { Button } from "@/components/ui/button"
 
 export default function Page() {
+  
   return (
     <TwoCardLayout
       leftTitle="Prompt"

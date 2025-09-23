@@ -9,6 +9,7 @@ import {
   SquareTerminal,
   FileText
 } from "lucide-react"
+import { title } from "process"
 
 export const data = {
   user: {
@@ -25,6 +26,11 @@ export const data = {
    
   ],
   navMain: [
+    {
+      title:"Zeno AI",
+      icon: FileText,
+      url:"/",
+    },
   {
   title: "Image Tools",
   url: "#",
